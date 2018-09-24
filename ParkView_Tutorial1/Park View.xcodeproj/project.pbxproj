@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3CF546821585BD100E42E42 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF546721585BD100E42E42 /* Park.swift */; };
+		A3CF546A21585F9300E42E42 /* ParkMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF546921585F9300E42E42 /* ParkMapOverlay.swift */; };
+		A3CF546C2158603800E42E42 /* ParkMapOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF546B2158603800E42E42 /* ParkMapOverlayView.swift */; };
+		A3CF546E2158624F00E42E42 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF546D2158624F00E42E42 /* AttractionAnnotation.swift */; };
+		A3CF5470215862B700E42E42 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF546F215862B700E42E42 /* AttractionAnnotationView.swift */; };
+		A3CF5472215868E300E42E42 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF5471215868E300E42E42 /* Character.swift */; };
+		C09F12DB1F1C39B70013BFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */; };
+		C09F12E01F1C39B70013BFBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09F12DE1F1C39B70013BFBC /* Main.storyboard */; };
+		C09F12E21F1C39B70013BFBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09F12E11F1C39B70013BFBC /* Assets.xcassets */; };
+		C09F12E51F1C39B70013BFBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09F12E31F1C39B70013BFBC /* LaunchScreen.storyboard */; };
+		C09F13031F1C40EB0013BFBC /* BatmanLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09F12ED1F1C40D60013BFBC /* BatmanLocations.plist */; };
+		C09F13041F1C40EB0013BFBC /* EntranceToGoliathRoute.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09F12EE1F1C40D60013BFBC /* EntranceToGoliathRoute.plist */; };
+		C09F13051F1C40EB0013BFBC /* MagicMountain.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09F12EF1F1C40D60013BFBC /* MagicMountain.plist */; };
+		C09F13061F1C40EB0013BFBC /* MagicMountainAttractions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09F12F01F1C40D60013BFBC /* MagicMountainAttractions.plist */; };
+		C09F13071F1C40EB0013BFBC /* TazLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09F12F11F1C40D60013BFBC /* TazLocations.plist */; };
+		C09F13081F1C40EB0013BFBC /* TweetyBirdLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09F12F21F1C40D60013BFBC /* TweetyBirdLocations.plist */; };
+		C09F13091F1C40F10013BFBC /* MapOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F12FB1F1C40D60013BFBC /* MapOptionsViewController.swift */; };
+		C09F130A1F1C40F10013BFBC /* ParkMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F12FC1F1C40D60013BFBC /* ParkMapViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A3CF546721585BD100E42E42 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		A3CF546921585F9300E42E42 /* ParkMapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapOverlay.swift; sourceTree = "<group>"; };
+		A3CF546B2158603800E42E42 /* ParkMapOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapOverlayView.swift; sourceTree = "<group>"; };
+		A3CF546D2158624F00E42E42 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
+		A3CF546F215862B700E42E42 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
+		A3CF5471215868E300E42E42 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		C09F12D71F1C39B70013BFBC /* Park View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C09F12DF1F1C39B70013BFBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C09F12E11F1C39B70013BFBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C09F12E41F1C39B70013BFBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C09F12E61F1C39B70013BFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09F12ED1F1C40D60013BFBC /* BatmanLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BatmanLocations.plist; sourceTree = "<group>"; };
+		C09F12EE1F1C40D60013BFBC /* EntranceToGoliathRoute.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = EntranceToGoliathRoute.plist; sourceTree = "<group>"; };
+		C09F12EF1F1C40D60013BFBC /* MagicMountain.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MagicMountain.plist; sourceTree = "<group>"; };
+		C09F12F01F1C40D60013BFBC /* MagicMountainAttractions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MagicMountainAttractions.plist; sourceTree = "<group>"; };
+		C09F12F11F1C40D60013BFBC /* TazLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TazLocations.plist; sourceTree = "<group>"; };
+		C09F12F21F1C40D60013BFBC /* TweetyBirdLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TweetyBirdLocations.plist; sourceTree = "<group>"; };
+		C09F12FB1F1C40D60013BFBC /* MapOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOptionsViewController.swift; sourceTree = "<group>"; };
+		C09F12FC1F1C40D60013BFBC /* ParkMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C09F12D41F1C39B70013BFBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C09F12CE1F1C39B70013BFBC = {
+			isa = PBXGroup;
+			children = (
+				C09F12D91F1C39B70013BFBC /* Park View */,
+				C09F12D81F1C39B70013BFBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C09F12D81F1C39B70013BFBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C09F12D71F1C39B70013BFBC /* Park View.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C09F12D91F1C39B70013BFBC /* Park View */ = {
+			isa = PBXGroup;
+			children = (
+				C0B631001F2B028200E888EA /* Annotations */,
+				C09F12EC1F1C40D60013BFBC /* Park Information */,
+				C09F130B1F1C47960013BFBC /* Models */,
+				C0B630FF1F2B025F00E888EA /* Overlays */,
+				C09F12FA1F1C40D60013BFBC /* View Controllers */,
+				C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */,
+				C09F12DE1F1C39B70013BFBC /* Main.storyboard */,
+				C09F12E11F1C39B70013BFBC /* Assets.xcassets */,
+				C09F12E31F1C39B70013BFBC /* LaunchScreen.storyboard */,
+				C09F12E61F1C39B70013BFBC /* Info.plist */,
+			);
+			path = "Park View";
+			sourceTree = "<group>";
+		};
+		C09F12EC1F1C40D60013BFBC /* Park Information */ = {
+			isa = PBXGroup;
+			children = (
+				C09F12ED1F1C40D60013BFBC /* BatmanLocations.plist */,
+				C09F12EE1F1C40D60013BFBC /* EntranceToGoliathRoute.plist */,
+				C09F12EF1F1C40D60013BFBC /* MagicMountain.plist */,
+				C09F12F01F1C40D60013BFBC /* MagicMountainAttractions.plist */,
+				C09F12F11F1C40D60013BFBC /* TazLocations.plist */,
+				C09F12F21F1C40D60013BFBC /* TweetyBirdLocations.plist */,
+			);
+			path = "Park Information";
+			sourceTree = "<group>";
+		};
+		C09F12FA1F1C40D60013BFBC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C09F12FB1F1C40D60013BFBC /* MapOptionsViewController.swift */,
+				C09F12FC1F1C40D60013BFBC /* ParkMapViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C09F130B1F1C47960013BFBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A3CF546721585BD100E42E42 /* Park.swift */,
+				A3CF5471215868E300E42E42 /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C0B630FF1F2B025F00E888EA /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				A3CF546921585F9300E42E42 /* ParkMapOverlay.swift */,
+				A3CF546B2158603800E42E42 /* ParkMapOverlayView.swift */,
+			);
+			path = Overlays;
+			sourceTree = "<group>";
+		};
+		C0B631001F2B028200E888EA /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				A3CF546D2158624F00E42E42 /* AttractionAnnotation.swift */,
+				A3CF546F215862B700E42E42 /* AttractionAnnotationView.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C09F12D61F1C39B70013BFBC /* Park View */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C09F12E91F1C39B70013BFBC /* Build configuration list for PBXNativeTarget "Park View" */;
+			buildPhases = (
+				C09F12D31F1C39B70013BFBC /* Sources */,
+				C09F12D41F1C39B70013BFBC /* Frameworks */,
+				C09F12D51F1C39B70013BFBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Park View";
+			productName = "Park View";
+			productReference = C09F12D71F1C39B70013BFBC /* Park View.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C09F12CF1F1C39B70013BFBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Ray Wenderlich";
+				TargetAttributes = {
+					C09F12D61F1C39B70013BFBC = {
+						CreatedOnToolsVersion = 9.0;
+					};
+				};
+			};
+			buildConfigurationList = C09F12D21F1C39B70013BFBC /* Build configuration list for PBXProject "Park View" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C09F12CE1F1C39B70013BFBC;
+			productRefGroup = C09F12D81F1C39B70013BFBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C09F12D61F1C39B70013BFBC /* Park View */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C09F12D51F1C39B70013BFBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09F12E51F1C39B70013BFBC /* LaunchScreen.storyboard in Resources */,
+				C09F12E21F1C39B70013BFBC /* Assets.xcassets in Resources */,
+				C09F13081F1C40EB0013BFBC /* TweetyBirdLocations.plist in Resources */,
+				C09F13031F1C40EB0013BFBC /* BatmanLocations.plist in Resources */,
+				C09F12E01F1C39B70013BFBC /* Main.storyboard in Resources */,
+				C09F13041F1C40EB0013BFBC /* EntranceToGoliathRoute.plist in Resources */,
+				C09F13061F1C40EB0013BFBC /* MagicMountainAttractions.plist in Resources */,
+				C09F13051F1C40EB0013BFBC /* MagicMountain.plist in Resources */,
+				C09F13071F1C40EB0013BFBC /* TazLocations.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C09F12D31F1C39B70013BFBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3CF5472215868E300E42E42 /* Character.swift in Sources */,
+				A3CF5470215862B700E42E42 /* AttractionAnnotationView.swift in Sources */,
+				A3CF546E2158624F00E42E42 /* AttractionAnnotation.swift in Sources */,
+				C09F13091F1C40F10013BFBC /* MapOptionsViewController.swift in Sources */,
+				C09F130A1F1C40F10013BFBC /* ParkMapViewController.swift in Sources */,
+				C09F12DB1F1C39B70013BFBC /* AppDelegate.swift in Sources */,
+				A3CF546A21585F9300E42E42 /* ParkMapOverlay.swift in Sources */,
+				A3CF546C2158603800E42E42 /* ParkMapOverlayView.swift in Sources */,
+				A3CF546821585BD100E42E42 /* Park.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C09F12DE1F1C39B70013BFBC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C09F12DF1F1C39B70013BFBC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C09F12E31F1C39B70013BFBC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C09F12E41F1C39B70013BFBC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C09F12E71F1C39B70013BFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C09F12E81F1C39B70013BFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C09F12EA1F1C39B70013BFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Park View/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Park-View";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C09F12EB1F1C39B70013BFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Park View/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Park-View";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C09F12D21F1C39B70013BFBC /* Build configuration list for PBXProject "Park View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C09F12E71F1C39B70013BFBC /* Debug */,
+				C09F12E81F1C39B70013BFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C09F12E91F1C39B70013BFBC /* Build configuration list for PBXNativeTarget "Park View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C09F12EA1F1C39B70013BFBC /* Debug */,
+				C09F12EB1F1C39B70013BFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C09F12CF1F1C39B70013BFBC /* Project object */;
+}
