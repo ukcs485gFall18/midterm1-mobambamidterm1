@@ -36,6 +36,26 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView! // connection to mapView
     
+    // an array to hold the Artwork objects from the JSON file
+    var artworks: [Artwork] = []
+    
+    // keep track of authorization status for accessing the user’s location
+    let locationManager = CLLocationManager()
+    // “tick” the map view’s Shows-User-Location checkbox if your app is authorized
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else { // tell locationManager to request authorization from the user
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +64,25 @@ class ViewController: UIViewController {
         
         // zoom into initialLocation on startup
         centerMapOnLocation(location: initialLocation)
+        
+        // setting ViewController as the delegate of the map view
+        mapView.delegate = self
+     
+        // register ArtworkMakerView class
+        /* mapView.register(ArtworkMarkerView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) */
+        // replace with:
+        mapView.register(ArtworkView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 
         
+        // create an artworks array
+        loadInitialData()
+        // add artworks to map
+        mapView.addAnnotations(artworks)
+
     }
+    
     // declare radius and center location
     let regionRadius: CLLocationDistance = 1000
     func centerMapOnLocation(location: CLLocation) {
@@ -55,6 +91,61 @@ class ViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    func loadInitialData() {
+        // read the PublicArt.json file into a Data object
+        guard let fileName = Bundle.main.path(forResource: "PublicArt", ofType: "json")
+            else { return }
+        let optionalData = try? Data(contentsOf: URL(fileURLWithPath: fileName))
+        
+        guard
+            let data = optionalData,
+            // use JSONSerialization to obtain a JSON object
+            let json = try? JSONSerialization.jsonObject(with: data),
+            // check that the JSON object is a dictionary with String keys and Any values
+            let dictionary = json as? [String: Any],
+            // only interested in the JSON object whose key is "data"
+            let works = dictionary["data"] as? [[Any]]
+            else { return }
+        // flatmap this array of arrays
+        let validWorks = works.flatMap { Artwork(json: $0) }
+        // append the resulting validWorks to the artworks array
+        artworks.append(contentsOf: validWorks)
+    }
 
 }
+
+extension ViewController: MKMapViewDelegate {
+    // called for every annotation you add to the map
+    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // check that this annotation is an Artwork object
+        guard let annotation = annotation as? Artwork else { return nil }
+        // To make markers appear, you create each view as an MKMarkerAnnotationView
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        // check to see if a reusable annotation view is available before creating a new one
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            // create a new MKMarkerAnnotationView object
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    } */
+    
+    // when the user taps the callout button.
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! Artwork // grab the Artwork object that this tap refers to
+        // show driving directions from the user’s current location to this pin
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+    
+}
+
 
