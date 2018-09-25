@@ -2,7 +2,7 @@ import Foundation
 import MapKit
 import Contacts
 
-/* Artwork must subclass NSObject, because MKAnnotation is an NSObjectProtocol */
+/* Artwork must subclass NSObject, because MKAnnotation is an NSObjectProtocol - Created by starter project */
 class Artwork: NSObject, MKAnnotation {
     
     /* Conforming to protocol - using required variables */

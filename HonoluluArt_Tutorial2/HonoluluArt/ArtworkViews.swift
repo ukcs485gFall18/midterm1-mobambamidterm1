@@ -1,6 +1,8 @@
 import Foundation
 import MapKit
 
+/* Both classes in this file were created by the starter project */
+
 /* Configuring artwork annotation marker view */
 class ArtworkMarkerView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {

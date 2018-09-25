@@ -3,11 +3,12 @@ import UIKit
 import MapKit
 import MessageUI
 
+/* Class created by tutorial starter project */
 class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
     /* Connecting objects from Storyboard */
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var shareArtworkButtonOutlet: UIButton!
+    @IBOutlet weak var shareArtworkButtonOutlet: UIButton! //  Added Share functionality: Steven
     
     /* An array to hold the Artwork objects from the JSON file */
     var artworks: [Artwork] = []
@@ -16,7 +17,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     let locationManager = CLLocationManager()
     
     /* Selected Artwork to share with friends */
-    var selectedAnnotation: Artwork?
+    var selectedAnnotation: Artwork? //  Added Share functionality: Steven
     
     /* Check location permissions upon view */
     override func viewDidAppear(_ animated: Bool) {
@@ -27,7 +28,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /* Editing appearance of share button */
+        /* Editing appearance of share button - Added Share functionality: Steven */
         shareArtworkButtonOutlet.layer.cornerRadius = shareArtworkButtonOutlet.frame.height / 2
         shareArtworkButtonOutlet.clipsToBounds = true
         shareArtworkButtonOutlet.isHidden = true
@@ -50,14 +51,13 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         /* Add artworks to map */
         mapView.addAnnotations(artworks)
         
-        // Jen's Functions!!
+        /* Added compass functionality - Jen */
         addCompass()
         addScale()
         
     }
     
-    // Jen's Function!
-    // I made a compass!
+    /* Added compass functionality - Jen */
     func addCompass() {
         
         mapView.showsCompass = false  // Hide built-in compass
@@ -74,8 +74,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         
     }
     
-    // Jen's Function!
-    // I made a scale!
+    /* Added compass scale functionality - Jen */
     func addScale() {
         
         mapView.showsScale = false // Hide built in scale
@@ -119,7 +118,8 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    /* Open iMessage upon "Share Artwork" */
+    /* Open iMessage upon "Share Artwork" Added share functionality - Steven, reference code below */
+    /* https://stackoverflow.com/questions/41343895/sending-sms-using-mfmessagecomposeviewcontroller */
     @IBAction func shareArtworkButtonClicked(_ sender: Any) {
         let title = selectedAnnotation?.title
         let coord = selectedAnnotation?.coordinate
@@ -155,13 +155,14 @@ extension ViewController: MKMapViewDelegate {
         location.mapItem().openInMaps(launchOptions: launchOptions)
     }
     
-    /* When a user selects an artwork, show share buton */
+    
+    /* When a user selects an artwork, show share buton - Added Share functionality - Steven */
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         shareArtworkButtonOutlet.isHidden = false
         self.selectedAnnotation = view.annotation as? Artwork
     }
     
-    /* When a user deselects an artwork, hide share button */
+    /* When a user deselects an artwork, hide share button - Added Share functionality - Steven */
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         shareArtworkButtonOutlet.isHidden = true
     }

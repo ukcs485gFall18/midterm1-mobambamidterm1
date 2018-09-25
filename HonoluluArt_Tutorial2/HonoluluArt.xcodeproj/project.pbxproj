@@ -13,7 +13,6 @@
 		40086AFB1EC7F7AF00FD79F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40086AFA1EC7F7AF00FD79F6 /* Assets.xcassets */; };
 		40086AFE1EC7F7AF00FD79F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40086AFC1EC7F7AF00FD79F6 /* LaunchScreen.storyboard */; };
 		40086B061EC7F7CD00FD79F6 /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = 40086B051EC7F7CD00FD79F6 /* PublicArt.json */; };
-		A3AED39521596075005C5774 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AED39421596075005C5774 /* Compass.swift */; };
 		A3CF54762158777B00E42E42 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF54752158777B00E42E42 /* Artwork.swift */; };
 		A3CF54782158801100E42E42 /* ArtworkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF54772158801100E42E42 /* ArtworkViews.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		40086AFD1EC7F7AF00FD79F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40086AFF1EC7F7AF00FD79F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40086B051EC7F7CD00FD79F6 /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
-		A3AED39421596075005C5774 /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 		A3CF54752158777B00E42E42 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		A3CF54772158801100E42E42 /* ArtworkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +69,6 @@
 				40086AFF1EC7F7AF00FD79F6 /* Info.plist */,
 				A3CF54752158777B00E42E42 /* Artwork.swift */,
 				A3CF54772158801100E42E42 /* ArtworkViews.swift */,
-				A3AED39421596075005C5774 /* Compass.swift */,
 			);
 			path = HonoluluArt;
 			sourceTree = "<group>";
@@ -151,7 +148,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3AED39521596075005C5774 /* Compass.swift in Sources */,
 				40086AF61EC7F7AF00FD79F6 /* ViewController.swift in Sources */,
 				A3CF54782158801100E42E42 /* ArtworkViews.swift in Sources */,
 				A3CF54762158777B00E42E42 /* Artwork.swift in Sources */,
