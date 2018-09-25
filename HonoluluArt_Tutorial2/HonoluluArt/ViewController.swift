@@ -49,7 +49,46 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         
         /* Add artworks to map */
         mapView.addAnnotations(artworks)
-
+        
+        // Jen's Functions!!
+        addCompass()
+        addScale()
+        
+    }
+    
+    // Jen's Function!
+    // I made a compass!
+    func addCompass() {
+        
+        mapView.showsCompass = false  // Hide built-in compass
+        
+        let compassButton = MKCompassButton(mapView: mapView)   // Make a new compass
+        compassButton.compassVisibility = .visible // Make compass visible
+        
+        let x = 20
+        let y = 40 // to place in top left corner (above compass)
+        
+        compassButton.frame.origin = CGPoint(x: x, y: y) // position compass
+        
+        mapView.addSubview(compassButton) // Add compass to the view
+        
+    }
+    
+    // Jen's Function!
+    // I made a scale!
+    func addScale() {
+        
+        mapView.showsScale = false // Hide built in scale
+        
+        let scale = MKScaleView(mapView: mapView) // Make a new scale
+        scale.scaleVisibility = .visible // Make scale visable (when zoomed)
+        
+        scale.legendAlignment = MKScaleView.Alignment.leading // makes 0 to the left
+        
+        scale.frame.origin.x = 20
+        scale.frame.origin.y = 10 // position in top left corner
+        
+         mapView.addSubview(scale) // add scale to view
     }
     
     /* Declare radius and center location */
