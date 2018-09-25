@@ -1,85 +1,53 @@
-/**
- * Copyright (c) 2017 Razeware LLC
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
- * distribute, sublicense, create a derivative work, and/or sell copies of the
- * Software in any work that is designed, intended, or marketed for pedagogical or
- * instructional purposes related to programming, coding, application development,
- * or information technology.  Permission for such use, copying, modification,
- * merger, publication, distribution, sublicensing, creation of derivative works,
- * or sale is expressly withheld.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
+// Imports for Map usage, iMessage controller composition
 import UIKit
-import MapKit // import MapKit
+import MapKit
+import MessageUI
 
+class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var mapView: MKMapView! // connection to mapView
+    /* Connecting objects from Storyboard */
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var shareArtworkButtonOutlet: UIButton!
     
-    // an array to hold the Artwork objects from the JSON file
+    /* An array to hold the Artwork objects from the JSON file */
     var artworks: [Artwork] = []
     
-    // keep track of authorization status for accessing the user’s location
+    /* Keep track of authorization status for accessing the user’s location */
     let locationManager = CLLocationManager()
-    // “tick” the map view’s Shows-User-Location checkbox if your app is authorized
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapView.showsUserLocation = true
-        } else { // tell locationManager to request authorization from the user
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
     
+    /* Selected Artwork to share with friends */
+    var selectedAnnotation: Artwork?
+    
+    /* Check location permissions upon view */
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set initial location in Honolulu
+        /* Editing appearance of share button */
+        shareArtworkButtonOutlet.layer.cornerRadius = shareArtworkButtonOutlet.frame.height / 2
+        shareArtworkButtonOutlet.clipsToBounds = true
+        shareArtworkButtonOutlet.isHidden = true
+        
+        /* Set initial location in Honolulu */
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         
-        // zoom into initialLocation on startup
+        /* Zoom into initialLocation on startup */
         centerMapOnLocation(location: initialLocation)
         
-        // setting ViewController as the delegate of the map view
+        /* Setting ViewController as the delegate of the map view */
         mapView.delegate = self
      
-        // register ArtworkMakerView class
-        /* mapView.register(ArtworkMarkerView.self,
-                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) */
-        // replace with:
-        mapView.register(ArtworkView.self,
-                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        /* Register ArtworkMakerView class */
+        mapView.register(ArtworkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 
-        
-        // create an artworks array
+        /* Create an artworks array */
         loadInitialData()
         
-        // add artworks to map
+        /* Add artworks to map */
         mapView.addAnnotations(artworks)
         
         // Jen's Functions!!
@@ -123,68 +91,79 @@ class ViewController: UIViewController {
          mapView.addSubview(scale) // add scale to view
     }
     
-    
-    // declare radius and center location
+    /* Declare radius and center location */
     let regionRadius: CLLocationDistance = 1000
     func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    /* Loading JSON data */
     func loadInitialData() {
-        // read the PublicArt.json file into a Data object
         guard let fileName = Bundle.main.path(forResource: "PublicArt", ofType: "json")
             else { return }
         let optionalData = try? Data(contentsOf: URL(fileURLWithPath: fileName))
         
         guard
             let data = optionalData,
-            // use JSONSerialization to obtain a JSON object
             let json = try? JSONSerialization.jsonObject(with: data),
-            // check that the JSON object is a dictionary with String keys and Any values
             let dictionary = json as? [String: Any],
-            // only interested in the JSON object whose key is "data"
             let works = dictionary["data"] as? [[Any]]
             else { return }
-        // flatmap this array of arrays
         let validWorks = works.flatMap { Artwork(json: $0) }
-        // append the resulting validWorks to the artworks array
         artworks.append(contentsOf: validWorks)
     }
-
+    
+    /* iMessage finished */
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    /* Open iMessage upon "Share Artwork" */
+    @IBAction func shareArtworkButtonClicked(_ sender: Any) {
+        let title = selectedAnnotation?.title
+        let coord = selectedAnnotation?.coordinate
+        let type = selectedAnnotation?.discipline
+        
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Check out this art piece!\n\n\(title!), a \(type!):\nhttp://maps.apple.com/?ll=\(coord!.latitude),\(coord!.longitude)"
+            controller.recipients = []
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    /* “Tick” the map view’s Shows-User-Location checkbox if your app is authorized */
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else { // tell locationManager to request authorization from the user
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
 }
 
 extension ViewController: MKMapViewDelegate {
-    // called for every annotation you add to the map
-    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // check that this annotation is an Artwork object
-        guard let annotation = annotation as? Artwork else { return nil }
-        // To make markers appear, you create each view as an MKMarkerAnnotationView
-        let identifier = "marker"
-        var view: MKMarkerAnnotationView
-        // check to see if a reusable annotation view is available before creating a new one
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        } else {
-            // create a new MKMarkerAnnotationView object
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        return view
-    } */
     
-    // when the user taps the callout button.
+    /* Upon callout button clicked, open Maps */
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! Artwork // grab the Artwork object that this tap refers to
         // show driving directions from the user’s current location to this pin
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+    
+    /* When a user selects an artwork, show share buton */
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        shareArtworkButtonOutlet.isHidden = false
+        self.selectedAnnotation = view.annotation as? Artwork
+    }
+    
+    /* When a user deselects an artwork, hide share button */
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        shareArtworkButtonOutlet.isHidden = true
     }
     
 }
