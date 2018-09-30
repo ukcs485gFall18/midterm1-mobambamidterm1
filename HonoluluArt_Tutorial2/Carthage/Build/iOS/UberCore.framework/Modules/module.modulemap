@@ -1,0 +1,11 @@
+framework module UberCore {
+  umbrella header "UberCore.h"
+
+  export *
+  module * { export * }
+}
+
+module UberCore.Swift {
+    header "UberCore-Swift.h"
+    requires objc
+}
