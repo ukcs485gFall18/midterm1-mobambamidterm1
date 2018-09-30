@@ -28,6 +28,8 @@
 		40086B051EC7F7CD00FD79F6 /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
 		A3CF54752158777B00E42E42 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		A3CF54772158801100E42E42 /* ArtworkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
+		AFA0A0FE2161874D00AC7D24 /* UberRides.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UberRides.framework; path = Carthage/Build/iOS/UberRides.framework; sourceTree = "<group>"; };
+		AFA0A0FF2161874D00AC7D24 /* UberCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UberCore.framework; path = Carthage/Build/iOS/UberCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			children = (
 				40086AF21EC7F7AF00FD79F6 /* HonoluluArt */,
 				40086AF11EC7F7AF00FD79F6 /* Products */,
+				AFA0A0FD2161874D00AC7D24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +74,15 @@
 				A3CF54772158801100E42E42 /* ArtworkViews.swift */,
 			);
 			path = HonoluluArt;
+			sourceTree = "<group>";
+		};
+		AFA0A0FD2161874D00AC7D24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFA0A0FF2161874D00AC7D24 /* UberCore.framework */,
+				AFA0A0FE2161874D00AC7D24 /* UberRides.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +299,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GG5S3A62X8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HonoluluArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevenpenava.honoluluapp;
@@ -301,6 +317,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GG5S3A62X8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HonoluluArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevenpenava.honoluluapp;

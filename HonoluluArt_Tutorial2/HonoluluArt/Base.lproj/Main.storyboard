@@ -33,6 +33,20 @@
                                     <action selector="shareArtworkButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fne-vf-RBq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZz-3r-f6A">
+                                <rect key="frame" x="29" y="386" width="262" height="69"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="7pS-wh-Pc7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Ride there with Uber">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="uberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4e-71-LY1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -41,15 +55,19 @@
                             <constraint firstItem="g5z-j1-gZD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iHx-sE-dlM"/>
                             <constraint firstItem="g5z-j1-gZD" firstAttribute="leading" secondItem="Hie-Z2-pz4" secondAttribute="leading" constant="29" id="iKr-cx-FA9"/>
                             <constraint firstItem="Hie-Z2-pz4" firstAttribute="trailing" secondItem="g5z-j1-gZD" secondAttribute="trailing" constant="29" id="iUd-cb-vZw"/>
+                            <constraint firstItem="bZz-3r-f6A" firstAttribute="leading" secondItem="Hie-Z2-pz4" secondAttribute="leading" constant="29" id="kOt-IZ-RFo"/>
                             <constraint firstItem="Hie-Z2-pz4" firstAttribute="trailing" secondItem="DLp-8w-jHa" secondAttribute="trailing" id="nVl-5x-E12"/>
                             <constraint firstItem="DLp-8w-jHa" firstAttribute="top" secondItem="Hie-Z2-pz4" secondAttribute="top" id="pLZ-9J-Zlw"/>
+                            <constraint firstItem="Hie-Z2-pz4" firstAttribute="trailing" secondItem="bZz-3r-f6A" secondAttribute="trailing" constant="29" id="txb-ec-NQI"/>
+                            <constraint firstItem="g5z-j1-gZD" firstAttribute="top" secondItem="bZz-3r-f6A" secondAttribute="bottom" constant="8" id="u8j-FE-hdl"/>
                             <constraint firstItem="DLp-8w-jHa" firstAttribute="leading" secondItem="Hie-Z2-pz4" secondAttribute="leading" id="zvP-AS-bdb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hie-Z2-pz4"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="DLp-8w-jHa" id="CuG-iA-PCI"/>
-                        <outlet property="shareArtworkButtonOutlet" destination="g5z-j1-gZD" id="5aL-wT-N1K"/>
+                        <outlet property="shareArtworkButtonOutlet" destination="g5z-j1-gZD" id="nMR-hJ-CsF"/>
+                        <outlet property="uberButton" destination="bZz-3r-f6A" id="2AR-GR-HBW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

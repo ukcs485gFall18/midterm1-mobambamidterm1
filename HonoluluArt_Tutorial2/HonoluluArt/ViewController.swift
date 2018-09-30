@@ -3,12 +3,15 @@ import UIKit
 import MapKit
 import MessageUI
 
+
 /* Class created by tutorial starter project */
 class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
     /* Connecting objects from Storyboard */
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var shareArtworkButtonOutlet: UIButton! //  Added Share functionality: Steven
+    
+    @IBOutlet weak var uberButton: UIButton!
     
     /* An array to hold the Artwork objects from the JSON file */
     var artworks: [Artwork] = []
@@ -32,6 +35,10 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         shareArtworkButtonOutlet.layer.cornerRadius = shareArtworkButtonOutlet.frame.height / 2
         shareArtworkButtonOutlet.clipsToBounds = true
         shareArtworkButtonOutlet.isHidden = true
+        
+        uberButton.layer.cornerRadius = uberButton.frame.height / 2
+        uberButton.clipsToBounds = true
+        uberButton.isHidden = true
         
         /* Set initial location in Honolulu */
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
@@ -118,6 +125,37 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
+    // Added animation: Blake
+    func animateButtons(show: Bool) {
+        if show {
+            uberButton.alpha = 0.0
+            uberButton.isHidden = false
+            shareArtworkButtonOutlet.alpha = 0.0
+            shareArtworkButtonOutlet.isHidden = false
+            UIView.animate(withDuration: 0.3) {
+                self.uberButton.alpha = 1.0
+                self.shareArtworkButtonOutlet.alpha = 1.0
+            }
+        } else {
+            uberButton.alpha = 1.0
+            shareArtworkButtonOutlet.alpha = 1.0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.uberButton.alpha = 0.0
+                self.shareArtworkButtonOutlet.alpha = 0.0
+            }) { (finised) in
+                self.uberButton.isHidden = true
+                self.shareArtworkButtonOutlet.isHidden = true
+            }
+        }
+    }
+    
+    // Uber Implementation
+    @IBAction func uberButtonTapped(_ sender: Any) {
+
+        
+        
+    }
+    
     /* Open iMessage upon "Share Artwork" Added share functionality - Steven, reference code below */
     /* https://stackoverflow.com/questions/41343895/sending-sms-using-mfmessagecomposeviewcontroller */
     @IBAction func shareArtworkButtonClicked(_ sender: Any) {
@@ -158,13 +196,13 @@ extension ViewController: MKMapViewDelegate {
     
     /* When a user selects an artwork, show share buton - Added Share functionality - Steven */
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        shareArtworkButtonOutlet.isHidden = false
+        animateButtons(show: true) // animation: Blake
         self.selectedAnnotation = view.annotation as? Artwork
     }
     
     /* When a user deselects an artwork, hide share button - Added Share functionality - Steven */
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        shareArtworkButtonOutlet.isHidden = true
+        animateButtons(show: false) // animation: Blake
     }
     
 }
