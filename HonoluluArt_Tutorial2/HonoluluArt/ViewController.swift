@@ -2,7 +2,8 @@
 import UIKit
 import MapKit
 import MessageUI
-
+import UberRides
+import CoreLocation
 
 /* Class created by tutorial starter project */
 class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
@@ -11,6 +12,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var shareArtworkButtonOutlet: UIButton! //  Added Share functionality: Steven
     
+    private var currentLocation: CLLocation?
     @IBOutlet weak var uberButton: UIButton!
     
     /* An array to hold the Artwork objects from the JSON file */
@@ -39,6 +41,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         uberButton.layer.cornerRadius = uberButton.frame.height / 2
         uberButton.clipsToBounds = true
         uberButton.isHidden = true
+        
         
         /* Set initial location in Honolulu */
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
@@ -151,9 +154,20 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
     // Uber Implementation
     @IBAction func uberButtonTapped(_ sender: Any) {
-
+        self.currentLocation = locationManager.location
+        let builder = RideParametersBuilder()
+        guard let pickupLocation = currentLocation else { return }
+        guard let dropoffLatitude = selectedAnnotation?.coordinate.latitude else { return }
+        guard let dropoffLongitude = selectedAnnotation?.coordinate.longitude else { return }
+        let dropoffLocation = CLLocation(latitude: dropoffLatitude, longitude: dropoffLongitude)
         
-        
+        builder.pickupLocation = pickupLocation
+        builder.dropoffLocation = dropoffLocation
+        builder.dropoffNickname = selectedAnnotation?.title ?? ""
+        let rideParameters = builder.build()
+        let deeplink = RequestDeeplink(rideParameters: rideParameters)
+        print(deeplink)
+        deeplink.execute()
     }
     
     /* Open iMessage upon "Share Artwork" Added share functionality - Steven, reference code below */
@@ -175,9 +189,16 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     /* “Tick” the map view’s Shows-User-Location checkbox if your app is authorized */
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
             mapView.showsUserLocation = true
         } else { // tell locationManager to request authorization from the user
             locationManager.requestWhenInUseAuthorization()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            mapView.showsUserLocation = true
         }
     }
 }
@@ -207,4 +228,11 @@ extension ViewController: MKMapViewDelegate {
     
 }
 
+// Blake: Get user current location
 
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        self.currentLocation = manager.location
+    }
+}

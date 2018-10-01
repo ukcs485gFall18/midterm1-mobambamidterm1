@@ -1,0 +1,20 @@
+PODS:
+  - UberCore (0.10.0)
+  - UberRides (0.10.0):
+    - UberCore
+
+DEPENDENCIES:
+  - UberRides (~> 0.9)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UberCore
+    - UberRides
+
+SPEC CHECKSUMS:
+  UberCore: 512950407dadc8045a583e4a509da2750ae7dc21
+  UberRides: cc6d7c5232966e45229dda1534106b33e379dfbe
+
+PODFILE CHECKSUM: 70538004d8e33c914e0bd6da55bf57d2db35a7fe
+
+COCOAPODS: 1.5.3

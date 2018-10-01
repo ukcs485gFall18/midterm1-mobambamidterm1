@@ -15,6 +15,7 @@
 		40086B061EC7F7CD00FD79F6 /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = 40086B051EC7F7CD00FD79F6 /* PublicArt.json */; };
 		A3CF54762158777B00E42E42 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF54752158777B00E42E42 /* Artwork.swift */; };
 		A3CF54782158801100E42E42 /* ArtworkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF54772158801100E42E42 /* ArtworkViews.swift */; };
+		F122F779D66EC4DDD59838CA /* Pods_HonoluluArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9641B9C98010F8E7E9AF1F27 /* Pods_HonoluluArt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +27,13 @@
 		40086AFD1EC7F7AF00FD79F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40086AFF1EC7F7AF00FD79F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40086B051EC7F7CD00FD79F6 /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
+		56795DA160523C40CC761D9E /* Pods-HonoluluArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HonoluluArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HonoluluArt/Pods-HonoluluArt.debug.xcconfig"; sourceTree = "<group>"; };
+		9641B9C98010F8E7E9AF1F27 /* Pods_HonoluluArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HonoluluArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CF54752158777B00E42E42 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		A3CF54772158801100E42E42 /* ArtworkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
 		AFA0A0FE2161874D00AC7D24 /* UberRides.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UberRides.framework; path = Carthage/Build/iOS/UberRides.framework; sourceTree = "<group>"; };
 		AFA0A0FF2161874D00AC7D24 /* UberCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UberCore.framework; path = Carthage/Build/iOS/UberCore.framework; sourceTree = "<group>"; };
+		CB2F7D0CB463A5E59EF63CD8 /* Pods-HonoluluArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HonoluluArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HonoluluArt/Pods-HonoluluArt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F122F779D66EC4DDD59838CA /* Pods_HonoluluArt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +54,7 @@
 				40086AF21EC7F7AF00FD79F6 /* HonoluluArt */,
 				40086AF11EC7F7AF00FD79F6 /* Products */,
 				AFA0A0FD2161874D00AC7D24 /* Frameworks */,
+				B25CCE8A71DEAC16A2C92C81 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,8 +87,18 @@
 			children = (
 				AFA0A0FF2161874D00AC7D24 /* UberCore.framework */,
 				AFA0A0FE2161874D00AC7D24 /* UberRides.framework */,
+				9641B9C98010F8E7E9AF1F27 /* Pods_HonoluluArt.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B25CCE8A71DEAC16A2C92C81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56795DA160523C40CC761D9E /* Pods-HonoluluArt.debug.xcconfig */,
+				CB2F7D0CB463A5E59EF63CD8 /* Pods-HonoluluArt.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40086B021EC7F7AF00FD79F6 /* Build configuration list for PBXNativeTarget "HonoluluArt" */;
 			buildPhases = (
+				F27905727D6DF33958155ACD /* [CP] Check Pods Manifest.lock */,
 				40086AEC1EC7F7AF00FD79F6 /* Sources */,
 				40086AED1EC7F7AF00FD79F6 /* Frameworks */,
 				40086AEE1EC7F7AF00FD79F6 /* Resources */,
+				84B8A614293126584BB57E10 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -117,7 +135,7 @@
 				TargetAttributes = {
 					40086AEF1EC7F7AF00FD79F6 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = GG5S3A62X8;
+						DevelopmentTeam = 9ZWPZP6FS5;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -154,6 +172,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84B8A614293126584BB57E10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HonoluluArt/Pods-HonoluluArt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UberCore/UberCore.framework",
+				"${BUILT_PRODUCTS_DIR}/UberRides/UberRides.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberRides.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HonoluluArt/Pods-HonoluluArt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F27905727D6DF33958155ACD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HonoluluArt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40086AEC1EC7F7AF00FD79F6 /* Sources */ = {
@@ -296,16 +355,17 @@
 		};
 		40086B031EC7F7AF00FD79F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56795DA160523C40CC761D9E /* Pods-HonoluluArt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GG5S3A62X8;
+				DEVELOPMENT_TEAM = 9ZWPZP6FS5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = HonoluluArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stevenpenava.honoluluapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.honoluluart.honoluluart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -314,16 +374,17 @@
 		};
 		40086B041EC7F7AF00FD79F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB2F7D0CB463A5E59EF63CD8 /* Pods-HonoluluArt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GG5S3A62X8;
+				DEVELOPMENT_TEAM = 9ZWPZP6FS5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = HonoluluArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stevenpenava.honoluluapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.honoluluart.honoluluart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;

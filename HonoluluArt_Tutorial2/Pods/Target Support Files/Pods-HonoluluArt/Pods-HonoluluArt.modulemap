@@ -1,0 +1,6 @@
+framework module Pods_HonoluluArt {
+  umbrella header "Pods-HonoluluArt-umbrella.h"
+
+  export *
+  module * { export * }
+}

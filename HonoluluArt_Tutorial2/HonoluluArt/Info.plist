@@ -18,6 +18,11 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>uber</string>
+		<string>uberauth</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -36,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UberClientID</key>
+	<string>WdBBktZskLqd0fP9acKID1xIN0-LNh7t</string>
+	<key>UberDisplayName</key>
+	<string>Midterm485G</string>
+	<key>UberServerToken</key>
+	<string>xw19HQJbAo1PewS_4-67AXxLa_GajwsYPsP0Ezry</string>
 </dict>
 </plist>
