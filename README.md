@@ -1,3 +1,5 @@
+# NOTE: Project is found in HonoluluArt_Tutorial2
+
 # Description
 
 Use of the MapKit class on two separate applications, one of which creating a map overlay for an amusement park and a satellite view of the map. The second tutorial was to create annotations and connection to Apple Maps’s driving directions in Honolulu, Hawaii.
